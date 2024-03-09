@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SegundaApp</string>
+
+    <!-- Textos de la app -->
+    <string name="primertexto">Primer texto</string>
+    <string name="segundotexto">Segundo texto</string>
+</resources>

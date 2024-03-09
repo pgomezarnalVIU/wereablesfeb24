@@ -1,0 +1,14 @@
+14 - Variables.kt
+15 - Tipos.kt
+17 - Arrays.kt
+19 - StringTemplates.kt
+20 - Condicionales.kt
+21 - Bucles.kt
+21 - BuclesFor.kt
+22,23,24 - Funciones.kt
+25,26,27,28 - PooBasico.kt
+29 - PooGetSet.kt
+30 - PooVisibilidad.kt
+31 - PooConstructorPrimario.kt
+32 - PooConstructorSecundario.kt
+37 - Nullable.kt
