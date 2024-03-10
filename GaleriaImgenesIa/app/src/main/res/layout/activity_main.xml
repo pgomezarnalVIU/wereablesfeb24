@@ -82,16 +82,17 @@
             android:layout_gravity="center|start"
             android:layout_marginEnd="10dp"
             android:tag="\@drawable/imagen05"
-            app:srcCompat="@drawable/imagen05">
+            app:srcCompat="@drawable/imagen06">
 
         </ImageView>
+
         <ImageView
             android:id="@+id/imagen06"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_gravity="center|end"
-            android:tag="\@drawable/imagen06"
-            app:srcCompat="@drawable/imagen06">
+            android:tag="\@drawable/openart_logo"
+            app:srcCompat="@drawable/openart_logo">
 
         </ImageView>
     </FrameLayout>
