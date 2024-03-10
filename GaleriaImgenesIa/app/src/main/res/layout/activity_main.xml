@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".MainActivity"
+    android:padding="10dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="top"
+        android:padding="10dp"
+        android:background="@color/rowback"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imagen01"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center|start"
+            android:layout_marginEnd="10dp"
+            android:tag="\@drawable/imagen01"
+            app:srcCompat="@drawable/imagen01">
+
+        </ImageView>
+        <ImageView
+            android:id="@+id/imagen02"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center|end"
+            android:tag="\@drawable/imagen02"
+            app:srcCompat="@drawable/imagen02">
+
+        </ImageView>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:padding="10dp"
+        android:background="@color/rowback"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imagen03"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center|start"
+            android:layout_marginEnd="10dp"
+            android:tag="\@drawable/imagen03"
+            app:srcCompat="@drawable/imagen03">
+
+        </ImageView>
+        <ImageView
+            android:id="@+id/imagen04"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center|end"
+            android:tag="\@drawable/imagen04"
+            app:srcCompat="@drawable/imagen04">
+
+        </ImageView>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="bottom"
+        android:padding="10dp"
+        android:background="@color/rowback"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imagen05"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center|start"
+            android:layout_marginEnd="10dp"
+            android:tag="\@drawable/imagen05"
+            app:srcCompat="@drawable/imagen05">
+
+        </ImageView>
+        <ImageView
+            android:id="@+id/imagen06"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center|end"
+            android:tag="\@drawable/imagen06"
+            app:srcCompat="@drawable/imagen06">
+
+        </ImageView>
+    </FrameLayout>
+
+</FrameLayout>
