@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/canal_background"
+    tools:context=".MainActivity">
+
+    <!--Mostramos el primer RecyclerView de Canales-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginVertical="44dp"
+        android:text="@string/tituloCanal"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        />
+    <TextView
+        style="@style/SubTituloCanal"
+        android:layout_marginHorizontal="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/categorias"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCategorias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!--Mostramos el segundo RecyclerView de Canales-->
+    <TextView
+        style="@style/SubTituloCanal"
+        android:layout_marginHorizontal="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/canales" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCanales"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -9,4 +9,5 @@
     <color name="imcM_card_noselected">#FF111328</color>
     <color name="imcM_title_text">#FF8D8E98</color>
     <color name="imcM_back_fab">#FF6200EE</color>
+    <color name="splash_back">#FF111328</color>
 </resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="negro">#FF000000</color>
+    <color name="blanco">#FFFFFFFF</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!--CanalesApp-->
+    <color name="canal_background_card">#FF081A4A</color>
+    <color name="canal_background_disabled">#787878</color>
+    <color name="canal_background">#FF2D4993</color>
+    <color name="canal_subtitle_text">#959595</color>
+    <color name="canal_accent">#E91E63</color>
+
+    <color name="canal_technology_category">#FF9800</color>
+    <color name="canal_cooking_category">#00BCD4</color>
+    <color name="canal_other_category">#4CAF50</color>
+</resources>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CanalesYoutube</string>
+
+    <!--CANALES  -->
+    <string name="tituloCanal">Mis Canales</string>
+    <string name="categorias">Categorias</string>
+    <string name="canales">Canales</string>
+</resources>

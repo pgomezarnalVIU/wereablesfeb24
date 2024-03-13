@@ -7,8 +7,12 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
+import androidx.core.splashscreen.SplashScreen
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.slider.RangeSlider
+import android.os.Handler;
+import android.os.Looper
 
 class MainActivity : AppCompatActivity() {
     //Variables de calculo  o funcionamiento
@@ -30,10 +34,21 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnMenosEdad: FloatingActionButton
     private lateinit var btnCalculate: Button
 
+    //Splash time
+    private var splashScreenStays :Boolean = true;
+    private val DELAY:Long = 1500L;
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        //Usamos el splash creado
+        val screenSplash:SplashScreen  = installSplashScreen()
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        //Incrementamos el tiempo del Splash
+        screenSplash.setKeepOnScreenCondition{splashScreenStays}
+        Handler(Looper.getMainLooper()).postDelayed({ splashScreenStays = false }, DELAY)
 
         //Funcion de inicializacion de componentes
         initComponentes()

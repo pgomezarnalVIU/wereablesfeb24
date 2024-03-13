@@ -6,4 +6,10 @@
     </style>
 
     <style name="Theme.ImcMejorado" parent="Base.Theme.ImcMejorado" />
+
+    <style name="Theme.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/splash_back</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/imc_logo</item>
+        <item name="postSplashScreenTheme">@style/Theme.ImcMejorado</item>
+    </style>
 </resources>
