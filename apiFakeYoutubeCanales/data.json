@@ -1,0 +1,9 @@
+{   
+    "canales":
+    [
+        {"nombre":"TEDx Talks","categoria":"tecnologia"},
+        {"nombre":"Derivando","categoria":"educacion"},
+        {"nombre":"Cocina con Coqui","categoria":"cocina"}
+    ]
+}
+    

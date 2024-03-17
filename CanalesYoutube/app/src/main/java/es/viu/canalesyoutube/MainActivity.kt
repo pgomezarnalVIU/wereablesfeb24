@@ -2,20 +2,15 @@ package es.viu.canalesyoutube
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import es.viu.canalesyoutube.adapters.CanalesAdapter
 import es.viu.canalesyoutube.adapters.CategoriasAdapter
-import es.viu.canalesyoutube.models.Canal
-import es.viu.canalesyoutube.models.CanalResponse
 import es.viu.canalesyoutube.models.CategoriasCanales
-import es.viu.canalesyoutube.service.ApiYoutubeService
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
+import es.viu.canalesyoutube.models.modelYoutube.YoutubeResponseItem
+import es.viu.canalesyoutube.service.RetrofitServiceFactory
 import kotlinx.coroutines.launch
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         CategoriasCanales.TECNOLOGIA,
         CategoriasCanales.COCINA,
         CategoriasCanales.OTROS)
-    private val canalesInit= mutableListOf<Canal>()
+    private val canalesInit= mutableListOf<YoutubeResponseItem>()
 
     //Recycler categorias
     private lateinit var rvCategorias: RecyclerView
@@ -41,7 +36,8 @@ class MainActivity : AppCompatActivity() {
         //Buscamos e inicializamos los recyclers
         rvCategorias = findViewById(R.id.rvCategorias)
         rvCanales = findViewById(R.id.rvCanales)
-        //Montamos el recycler
+
+        //Montamos el recycler de categorías
         categoriasAdapter = CategoriasAdapter(categorias)
         rvCategorias.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
@@ -52,34 +48,20 @@ class MainActivity : AppCompatActivity() {
         rvCanales.layoutManager = LinearLayoutManager(this)
         rvCanales.adapter=ccanalesAdapter
 
-    }
-    //Funcion de peticion contra APIResptFul
-    private fun getCanalesRetrofit(): Retrofit {
-        return Retrofit.Builder()
-            .baseUrl("http://192.168.0.108:3000/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-    }
-    private fun getCanales(){
-        CoroutineScope(Dispatchers.IO).launch{
-            val peticion = getCanalesRetrofit()
-                .create(ApiYoutubeService::class.java)
-                .getCanalesYoutube("data")
-            val canalesResponse: CanalResponse? = peticion.body()
-            runOnUiThread{
-                if(peticion.isSuccessful){
-                    Log.i("CANALESYOUTUBE","--------- EXITO")
-                    //Relleno los datos desde la respuesta
-                    val canalesData=canalesResponse?.canales?:emptyList()
-                    //Borro datos del RecyclerView
-                    canalesInit.clear()
-                    canalesInit.addAll(canalesData)
-                    //Repinta RecyclerView
-                    ccanalesAdapter.notifyDataSetChanged()
-                }else{
-                    Log.i("CANALESYOUTUBE","--------- ERROR")
-                }
-            }
+        //Montamos el servicio para lanzar la petición contra el API
+        val apiYoutubeService = RetrofitServiceFactory.getCanalesRetrofit()
+
+        lifecycleScope.launch {
+            val data = apiYoutubeService.getCanalesYoutube("canales")
+            //Relleno los datos desde la respuesta
+            val canalesData=data
+            //Borro datos del RecyclerView
+            canalesInit.clear()
+            canalesInit.addAll(canalesData)
+            //Repinta RecyclerView
+            ccanalesAdapter.notifyDataSetChanged()
         }
+
+
     }
 }
