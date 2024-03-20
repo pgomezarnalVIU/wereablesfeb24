@@ -11,7 +11,7 @@ class FraseViewModel:ViewModel() {
     val fraseData = MutableLiveData<FraseModel>()
 
     fun randomFrase(){
-        val fraseActual :FraseModel = FraseProvider.dameFrase()
+        val fraseActual :FraseModel = FraseProvider.dameFraseWeb()
         //Esta función avisará que hay un cambio en los datos del ViewModel
         fraseData.postValue(fraseActual)
     }

@@ -1,5 +1,7 @@
 package es.viu.misfrases.model
 
+import es.viu.misfrases.model.modelFraseFireStore.FraseResponse
+
 class FraseProvider {
     companion object {
 
@@ -8,6 +10,26 @@ class FraseProvider {
             val posicion = (0..(frases.size - 1)).random()
             return frases[posicion]
         }
+
+        //Devuelve una frase aleatoria dentro de la lista cargada a traves de Web
+        fun dameFraseWeb(): FraseModel {
+            if(frasesWeb.isEmpty()){
+                return dameFrase()
+            }else {
+                val posicion = (0..(frasesWeb.size - 1)).random()
+                return frasesWeb[posicion]
+            }
+        }
+
+        fun fraseResponseAdapter(fraseResponse:FraseResponse): MutableList<FraseModel>{
+            val fraseAdapter : MutableList<FraseModel> = arrayListOf()
+            for(doc in fraseResponse.documents){
+                fraseAdapter.add(FraseModel(doc.fields.frase.stringValue,doc.fields.autor.stringValue))
+            }
+            return fraseAdapter
+        }
+
+        var frasesWeb : MutableList<FraseModel> = arrayListOf()
 
         val frases = listOf<FraseModel>(
             FraseModel(

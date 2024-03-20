@@ -2,13 +2,20 @@ package es.viu.misfrases.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import es.viu.misfrases.R
 import es.viu.misfrases.model.FraseModel
+import es.viu.misfrases.model.FraseProvider
+import es.viu.misfrases.model.modelFraseFireStore.FraseResponse
+import es.viu.misfrases.service.ApiFrasesService
+import es.viu.misfrases.service.RetrofitServiceFactory
 import es.viu.misfrases.viewmodel.FraseViewModel
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -41,5 +48,15 @@ class MainActivity : AppCompatActivity() {
             tvFrase.text= it.frase
             tvAutor.text= it.autor
         })
+
+        //Montamos el servicio para lanzar la petición contra el API
+        val apiFrasesService = RetrofitServiceFactory.getFrasesRetrofit()
+
+        lifecycleScope.launch {
+            val frasesResponse:FraseResponse = apiFrasesService.getFrases("misfrases")
+            //Relleno los datos del FraseProvider
+            FraseProvider.frasesWeb =  FraseProvider.fraseResponseAdapter(frasesResponse)
+            Log.i("MAINACTIVITY",FraseProvider.frasesWeb[0].autor)
+        }
     }
 }
