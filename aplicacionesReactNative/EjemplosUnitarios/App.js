@@ -19,7 +19,7 @@ const EJEMPLOS={
   INPUTTEXT:5,
   COMPPRESS:6
 }
-const ejemplo=EJEMPLOS.COMPTOUCH
+const ejemplo=EJEMPLOS.SCROLLVIEW
 
 export default function App() {
   //Carga a partir de la seleccion
