@@ -2,7 +2,7 @@ import React from 'react';
 import {SafeAreaView, StyleSheet, TextInput, Text} from 'react-native';
 
 export default function CompTextInput () {
-  const [text, onChangeText] = React.useState('Useless Text');
+  const [text, onChangeText] = React.useState('Texto de ejemplo');
   const [number, onChangeNumber] = React.useState('');
 
   return (
