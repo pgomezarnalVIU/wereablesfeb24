@@ -8,6 +8,7 @@ import CompScrollView from './components/CompScrollView'
 import CompTouch from './components/CompTouch'
 import CompTextInput from './components/CompTextInput'
 import CompPress from './components/CompPress';
+import CompFormik from './components/CompFormik';
 
 //ENUM de los ejemplos unitarios
 const EJEMPLOS={
@@ -17,9 +18,10 @@ const EJEMPLOS={
   SCROLLVIEW:3,
   COMPTOUCH:4,
   INPUTTEXT:5,
-  COMPPRESS:6
+  COMPPRESS:6,
+  COMPFORMIK:7
 }
-const ejemplo=EJEMPLOS.COMPPRESS
+const ejemplo=EJEMPLOS.COMPFORMIK
 
 export default function App() {
   //Carga a partir de la seleccion
@@ -31,6 +33,7 @@ export default function App() {
   else if (ejemplo==EJEMPLOS.COMPTOUCH) appCargar=<CompTouch/>
   else if (ejemplo==EJEMPLOS.INPUTTEXT) appCargar=<CompTextInput/>
   else if (ejemplo==EJEMPLOS.COMPPRESS) appCargar=<CompPress/>
+  else if (ejemplo==EJEMPLOS.COMPFORMIK) appCargar=<CompFormik/>
   //JSX.Element
   return (
     <View style={styles.container}>
